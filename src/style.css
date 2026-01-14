@@ -1,5 +1,17 @@
 body{
-  color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #242424 !important;
+}
+
+#main_container {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 35%;
+
+  box-shadow: 0px 0px 10px #646cff;
+}
+
+footer{
+    border-top: 2px solid #646cff;
+    box-shadow: 0px -10px 50vh #6b6d99, inset 0px 5px 10px #7731b0c6;
 }
