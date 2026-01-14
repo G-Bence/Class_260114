@@ -2,6 +2,15 @@ const name = document.getElementById('name');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 const submitBtn = document.getElementById('submitBtn');
+const alertBox = document.getElementById('alertBox');
+const alertMessage = document.getElementById('alertMessage');
+const closeAlertBtn = document.getElementById('closeAlertBtn');
+
+alertBox.classList.add('d-none');
+
+closeAlertBtn.addEventListener('click', async function() {
+  alertBox.classList.add('d-none');
+});
 
 submitBtn.addEventListener('click', function(event) {
   event.preventDefault();
@@ -11,7 +20,14 @@ submitBtn.addEventListener('click', function(event) {
   const passwordValue = password.value.trim();
 
   if (nameValue === '' || emailValue === '' || passwordValue === '') {
-    alert('Please fill in all fields.');
+    console.log('Please fill in all fields.');
+    alertBox.classList.remove('alert-success');
+    alertBox.classList.add('alert-failure');
+    alertMessage.textContent = 'Please fill in all fields.';
+    alertBox.classList.remove('d-none');
+    setTimeout(() => {
+      alertBox.classList.add('d-none');
+    }, 2500);
     return;
   }
 
@@ -19,5 +35,13 @@ submitBtn.addEventListener('click', function(event) {
   email.value = '';
   password.value = '';
 
-  alert(`Thank you for signing up, ${nameValue}!`);
+  alertBox.classList.remove('alert-failure');
+  alertBox.classList.add('alert-success');
+  alertMessage.textContent = 'Thank you for signing up!';
+  alertBox.classList.remove('d-none');
+
+
+  setTimeout(() => {
+    alertBox.classList.add('d-none');
+  }, 2500);
 });
